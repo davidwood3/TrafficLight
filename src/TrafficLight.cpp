@@ -19,6 +19,7 @@ void TrafficLight::init()
     button1.init();
     delay(100);
     
+    state = STATE_RED;
     red();
 }
 
@@ -48,4 +49,26 @@ void TrafficLight::allLedsOff()
     redLed.off();
     yellowLed.off();
     greenLed.off();
+}
+
+void TrafficLight::update()
+{
+    switch (state) {
+        case STATE_RED: {
+            red();
+            break;
+        }
+        case STATE_YELLOW: {
+            yellow();
+            break;
+        }
+        case STATE_GREEN: {
+            green();
+            break;
+        }
+        case STATE_BLINK_GREEN: {
+            greenLedBlinker.update();
+            break;
+        }
+    }
 }

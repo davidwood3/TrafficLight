@@ -14,6 +14,15 @@ private:
     LedBlinker greenLedBlinker;
     PushButton button1;
     
+    enum trafficLightState {
+        STATE_RED,
+        STATE_YELLOW,
+        STATE_GREEN,
+        STATE_BLINK_GREEN
+    };
+    
+    int state;
+
     byte ledBrightness;
 
     enum TrafficLightState {
